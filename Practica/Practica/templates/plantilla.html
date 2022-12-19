@@ -1,0 +1,23 @@
+<html>
+
+<body>
+    <h1>Hola desde la plantilla!</h1>
+    {% if nombre_persona == "Alejandro" %}
+        <p>Te llamas Alejandro</p>
+    {% else %}
+        <p>No te llamas Alejandro</p>
+    {% endif %}
+    <p>Nombre: {{apellido_persona.upper}}, {{nombre_persona.capitalize}}</p>
+    <p>Fecha: {{now}}</p>
+    
+    {% if temas_curso %}
+        {% for tema in temas_curso %}
+            <li>{{tema}}</li>
+        {% endfor %}
+    {% else %}
+        <p>No hay temas que mostrar</p>
+    {% endif %}
+
+</body>
+
+</html>

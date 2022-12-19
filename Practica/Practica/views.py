@@ -1,8 +1,25 @@
 from django.http import HttpResponse
 import datetime
+from django.template import Template, Context        # trabajar con los templates
 
+'''
 def saludo(request):
     return HttpResponse("Hola a todos!")
+'''
+
+def saludo(request):
+    arch=open("G:/OneDrive - Instituto Nacional de Tecnología Industrial/CURSOS/Web-FrontEndPythonCABA/Codigo/Django/Practica\Practica/templates/plantilla.html")
+    #arch=open("C:/Users/usuario/Desktop/Proyecto/Proyecto/templates/plantilla.html")
+    nombre = "Alejandro"
+    apellido = "Savarin"
+    fecha = datetime.datetime.now()
+    temas = ["Plantillas","Modelos","Formularios","Vistas"]       # Creo una lista para iterar
+
+    plt=Template(arch.read())       # Interpreta el contenido del .html
+    arch.close()                    # Cierra el archivo
+    ctx=Context({"nombre_persona":nombre,"apellido_persona":apellido,"now":fecha,"temas_curso":temas})              # Define un contexto    
+    documento=plt.render(ctx)       # Renderiza el contenido
+    return HttpResponse(documento)
 
 def saludo_html(request):
     documento = """<html><body><h1>Hola a todos!</h1></body></html>"""
