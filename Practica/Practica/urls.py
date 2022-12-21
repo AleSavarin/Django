@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 # Importar mis módulos/apps
-from Practica.views import saludo, saludo_html, despedida, get_fecha, calcular_edad
+from Practica.views import saludo, saludo_html, despedida, get_fecha, calcular_edad, curso
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     path("saludohtml/",saludo_html),
     path("despedida/",despedida),
     path("fecha/",get_fecha),
-    path("edades/<int:edad>/<int:agno>",calcular_edad)   # Pasar por parámetros
+    path("edades/<int:edad>/<int:agno>",calcular_edad),   # Pasar por parámetros
+    path("curso/",curso)
 ]
