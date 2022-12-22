@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 # Importar mis módulos/apps
 from Practica.views import saludo, saludo_html, despedida, get_fecha, calcular_edad, curso
+from gestionPedidos import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +26,8 @@ urlpatterns = [
     path("despedida/",despedida),
     path("fecha/",get_fecha),
     path("edades/<int:edad>/<int:agno>",calcular_edad),   # Pasar por parámetros
-    path("curso/",curso)
+    path("curso/",curso),
+    path('busqueda_productos/',views.busqueda_productos),
+    path('buscar/',views.buscar),   
+    path('contacto/',views.contacto),
 ]
